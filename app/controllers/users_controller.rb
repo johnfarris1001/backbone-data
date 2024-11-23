@@ -22,4 +22,14 @@ class UsersController < ApplicationController
             render json: { error: 'Not authorized' }, status: :unauthorized
         end
     end
+
+    private
+    
+    def user_params
+        params.permit(:username, :password, :password_confirmation)
+    end
+
+    def render_unprocessable_entity_response(invalid)
+        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    end
 end

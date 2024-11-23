@@ -23,7 +23,7 @@ function App() {
 
     function onLogin(user) {
         setUser(user);
-        navigate("/profile");
+        navigate("/");
     }
 
     return (
