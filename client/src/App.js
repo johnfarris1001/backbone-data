@@ -26,10 +26,21 @@ function App() {
         navigate("/");
     }
 
+    function handleClick() {
+        if (user) {
+            fetch("/logout", {
+                method: "DELETE",
+            }).then(() => setUser(null));
+            navigate("/");
+        } else {
+            navigate("/login");
+        }
+    }
+
     return (
         <div className="App">
             <br />
-            <NavBar />
+            <NavBar handleClick={handleClick} />
             <br />
             <Outlet
                 context={{

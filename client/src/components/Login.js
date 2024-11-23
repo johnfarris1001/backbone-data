@@ -7,31 +7,31 @@ function Login() {
     const [password, setPassword] = useState("");
     const [disabled, setDisabled] = useState(false);
     const [errorMessages, setErrorMessages] = useState([]);
-    // const { onLogin } = useOutletContext();
+    const { onLogin } = useOutletContext();
 
-    // function handleSubmit(e) {
-    //     setDisabled(true);
-    //     e.preventDefault();
-    //     fetch("/login", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //             username,
-    //             password,
-    //         }),
-    //     }).then((r) => {
-    //         if (r.ok) {
-    //             r.json().then((user) => onLogin(user));
-    //         } else {
-    //             r.json().then((data) => {
-    //                 setDisabled(false);
-    //                 setErrorMessages(data.errors);
-    //             });
-    //         }
-    //     });
-    // }
+    function handleSubmit(e) {
+        setDisabled(true);
+        e.preventDefault();
+        fetch("/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username,
+                password,
+            }),
+        }).then((r) => {
+            if (r.ok) {
+                r.json().then((user) => onLogin(user));
+            } else {
+                r.json().then((data) => {
+                    setDisabled(false);
+                    setErrorMessages(data.errors);
+                });
+            }
+        });
+    }
 
     return (
         <div>
@@ -43,7 +43,7 @@ function Login() {
                     padding: "10px",
                     border: "solid",
                 }}
-                // onSubmit={handleSubmit}
+                onSubmit={handleSubmit}
             >
                 <Form.Field>
                     <label>Username: </label>
