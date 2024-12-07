@@ -39,7 +39,7 @@ function App() {
     }
 
     return (
-        <div className="App">
+        <div className="App" style={{ backgroundColor: "#f9f1f1" }}>
             <br />
             <NavBar handleClick={handleClick} />
             <br />
