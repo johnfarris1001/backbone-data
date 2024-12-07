@@ -1,6 +1,7 @@
 import NavBar from "./components/NavBar";
 import { useContext, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import NewRatingForm from "./forms/NewRatingForm";
 import { UserContext } from "./contexts/UserContext";
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
                     setUser: setUser,
                 }}
             />
+            <NewRatingForm />
         </div>
     );
 }
