@@ -12,9 +12,9 @@ class RatingsController < ApplicationController
         end
     end
 
-    def rating
+    def create
         rating = Rating.create!(rating_params.merge!({'user_id': current_user.id}))
-        render json: activity, status: :created
+        render json: rating, status: :created
     end
 
     def update
