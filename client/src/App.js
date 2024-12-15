@@ -3,6 +3,7 @@ import { useContext, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import NewRatingForm from "./forms/NewRatingForm";
 import { UserContext } from "./contexts/UserContext";
+import { Divider } from "semantic-ui-react";
 
 function App() {
     const { user, setUser, setAuthorizing } = useContext(UserContext);
@@ -50,6 +51,7 @@ function App() {
                     setUser: setUser,
                 }}
             />
+            <Divider />
             <NewRatingForm />
         </div>
     );

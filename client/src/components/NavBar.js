@@ -11,6 +11,9 @@ function NavBar({ handleClick }) {
             <Menu.Item>
                 <NavLink to="/">Home</NavLink>
             </Menu.Item>
+            <Menu.Item>
+                <NavLink to="/ratings">Ratings</NavLink>
+            </Menu.Item>
             <Menu.Menu position="right">
                 <Menu.Item>
                     <Button onClick={handleClick}>
